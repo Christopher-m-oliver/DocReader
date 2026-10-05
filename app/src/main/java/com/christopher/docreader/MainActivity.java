@@ -1,9 +1,9 @@
 package com.christopher.docreader;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -55,13 +55,33 @@ public class MainActivity extends AppCompatActivity {
                         document.getMimeType()
                 );
 
-        String message =
-                "Nome: " + document.getName() +
-                        "\nMIME: " + document.getMimeType() +
-                        "\nExtensão: " + document.getExtension() +
-                        "\nTipo detectado: " + type;
+        android.util.Log.d(
+                "DocReader",
+                "Nome: " + document.getName()
+                        + " | MIME: " + document.getMimeType()
+                        + " | Extensão: " + document.getExtension()
+                        + " | Tipo: " + type
+        );
 
-        android.util.Log.d("DocReader", message);
+        Intent intent =
+                new Intent(this, ViewerActivity.class);
+
+        intent.putExtra(
+                "document_uri",
+                document.getUri()
+        );
+
+        intent.putExtra(
+                "document_name",
+                document.getName()
+        );
+
+        intent.putExtra(
+                "document_type",
+                type.name()
+        );
+
+        startActivity(intent);
     }
 
     private String getFileName(Uri uri) {
@@ -93,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
         return fileName;
     }
+
     private String getFileExtension(String fileName) {
         if (fileName == null) {
             return "";
