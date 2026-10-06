@@ -1,6 +1,19 @@
 package com.christopher.docreader;
 
+import androidx.room.Entity;
+import androidx.room.Index;
+import androidx.room.PrimaryKey;
+
+@Entity(
+        tableName = "recent_documents",
+        indices = {
+                @Index(value = {"uri"}, unique = true)
+        }
+)
 public class RecentDocument {
+
+    @PrimaryKey(autoGenerate = true)
+    private long id;
 
     private String name;
     private String uri;
@@ -23,6 +36,14 @@ public class RecentDocument {
         this.extension = extension;
         this.lastOpenedAt = lastOpenedAt;
         this.readingProgress = readingProgress;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {

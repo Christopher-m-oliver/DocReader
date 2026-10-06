@@ -58,4 +58,11 @@
         android:text="Nenhum arquivo recente"
         android:textSize="14sp" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerRecent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone" />
+
 </LinearLayout>
