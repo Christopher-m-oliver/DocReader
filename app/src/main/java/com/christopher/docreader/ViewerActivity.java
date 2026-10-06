@@ -24,6 +24,8 @@ public class ViewerActivity extends AppCompatActivity {
 
         tvFileName = findViewById(R.id.tvFileName);
         tvContent = findViewById(R.id.tvContent);
+        findViewById(R.id.btnBack)
+                .setOnClickListener(v -> finish());
 
         String uriString = getIntent().getStringExtra("document_uri");
         String fileName = getIntent().getStringExtra("document_name");

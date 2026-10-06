@@ -60,15 +60,22 @@ public class RecentDocumentAdapter
                 document.getExtension();
 
         if (
-                extension == null
-                        || extension.isEmpty()
-        ) {
+                extension == null || extension.isEmpty()) {
+
             holder.tvType.setText(
                     "Formato desconhecido"
             );
+
         } else {
+            String formattedExtension =
+                    extension.toUpperCase();
+
             holder.tvType.setText(
-                    extension.toUpperCase()
+                    formattedExtension
+            );
+
+            holder.tvIcon.setText(
+                    formattedExtension
             );
         }
 
@@ -87,21 +94,24 @@ public class RecentDocumentAdapter
 
         TextView tvName;
         TextView tvType;
+        TextView tvIcon;
 
         public ViewHolder(
                 @NonNull View itemView
         ) {
             super(itemView);
 
-            tvName =
-                    itemView.findViewById(
-                            R.id.tvRecentName
-                    );
+            tvName = itemView.findViewById(
+                    R.id.tvRecentName
+            );
 
-            tvType =
-                    itemView.findViewById(
-                            R.id.tvRecentType
-                    );
+            tvType = itemView.findViewById(
+                    R.id.tvRecentType
+            );
+
+            tvIcon = itemView.findViewById(
+                    R.id.tvRecentIcon
+            );
         }
     }
 }
