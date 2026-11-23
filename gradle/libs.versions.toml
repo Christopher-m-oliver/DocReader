@@ -10,6 +10,7 @@ constraintlayout = "2.1.4"
 markwon = "4.6.2"
 room = "2.8.5"
 recyclerview = "1.4.0"
+pdfViewer = "1.0.0-beta01"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -23,6 +24,7 @@ markwon-core = { group = "io.noties.markwon", name = "core", version.ref = "mark
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+pdf-viewer-fragment = { group = "androidx.pdf", name = "pdf-viewer-fragment", version.ref = "pdfViewer" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
